@@ -1,0 +1,80 @@
+/* ============================================
+   CONTACT — 2026 Design
+   ============================================ */
+.contact-section {
+  padding: clamp(3rem, 8vw, 6rem) 0 2rem;
+  position: relative;
+}
+
+.contact-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+}
+
+.contact-container:hover {
+  transform: none;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.875rem 1.75rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+}
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  background: var(--primary-light);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.contact-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.15);
+}
+
+.contact-btn.phone:hover {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 2rem 1.25rem;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-btn {
+    min-width: auto;
+  }
+}

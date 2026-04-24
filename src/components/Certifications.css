@@ -1,0 +1,221 @@
+/* ============================================
+   CERTIFICATIONS — Premium Carousel (2026)
+   ============================================ */
+.cert-section {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main card */
+.cert-carousel-card {
+  width: 100%;
+  position: relative;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--elevated-shadow);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Progress bar */
+.cert-progress-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+  z-index: 20;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+}
+.cert-progress-bar {
+  height: 100%;
+  background: var(--accent-gradient);
+  transition: width 0.1s linear;
+}
+
+/* Viewport */
+.cert-viewport {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+.cert-slide-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* Title bar */
+.cert-title-bar {
+  padding: 1rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-top: 1px solid var(--border-color);
+}
+.cert-category-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-color);
+  background: var(--primary-light);
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+.cert-slide-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Counter */
+.cert-counter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+/* Navigation buttons */
+.cert-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.cert-nav-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-60%) scale(1.1);
+}
+.cert-nav-prev { left: 12px; }
+.cert-nav-next { right: 12px; }
+
+/* Indicators */
+.cert-indicators {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cert-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.cert-dot:hover {
+  background: var(--text-secondary);
+  transform: scale(1.15);
+}
+.cert-dot.active {
+  background: var(--primary-color);
+  width: 28px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 768px) {
+  .cert-nav-prev { left: 24px; }
+  .cert-nav-next { right: 24px; }
+}
+
+@media (max-width: 768px) {
+  .cert-viewport {
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-carousel-card {
+    border-radius: 18px;
+  }
+  .cert-viewport {
+    height: 280px;
+  }
+  .cert-slide {
+    padding: 1rem;
+  }
+  .cert-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .cert-nav-prev { left: 6px; }
+  .cert-nav-next { right: 6px; }
+  .cert-counter {
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+  }
+  .cert-title-bar {
+    padding: 0.75rem 1rem 1rem;
+  }
+  .cert-slide-title {
+    font-size: 0.92rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cert-viewport {
+    height: 520px;
+  }
+}
