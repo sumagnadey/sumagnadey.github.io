@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sumagna Dey — Quantum AI Engineer at HSBC Quantum Lab. Portfolio showcasing quantum computing research, AI/ML projects, 12+ IEEE/Springer publications, and GCP certifications." />
+    <meta name="author" content="Sumagna Dey" />
+    <meta property="og:title" content="Sumagna Dey | Portfolio" />
+    <meta property="og:description" content="Quantum AI Engineer | HSBC Quantum Lab | Published Researcher | GCP Certified" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#030217" />
+
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Devicons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+
+    <title>Sumagna Dey | Portfolio</title>
+    <script type="module" crossorigin src="/assets/index-C8UpErw6.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DOEviDxz.css">
+  </head>
+  <body>
+    <!-- Theme Check to Prevent Flash -->
+    <script>
+      (function() {
+        var hours = new Date().getHours();
+        if (hours < 5 || hours >= 18) {
+          document.body.classList.add('dark-mode');
+        }
+      })();
+    </script>
+    <div id="root">
+      <style>
+        .initial-loader-wrapper {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: #f0f2f5;
+          z-index: 99999;
+          font-family: 'JetBrains Mono', monospace;
+          transition: background-color 0.3s ease;
+        }
+
+        body.dark-mode .initial-loader-wrapper {
+          background-color: #06060f;
+        }
+
+        .quantum-cell-svg {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 24px;
+          overflow: visible;
+        }
+
+        .orbit-path {
+          stroke: rgba(79, 70, 229, 0.4);
+          stroke-width: 1.5;
+        }
+        body.dark-mode .orbit-path { stroke: rgba(129, 140, 248, 0.4); }
+
+        .nucleus-core {
+          fill: #4f46e5;
+          animation: pulse-core 2s infinite ease-in-out;
+        }
+        body.dark-mode .nucleus-core { fill: #818cf8; }
+
+        .electron-1 { fill: #06b6d4; }
+        body.dark-mode .electron-1 { fill: #22d3ee; }
+
+        .electron-2 { fill: #7c3aed; }
+        body.dark-mode .electron-2 { fill: #c084fc; }
+
+        .electron-3 { fill: #10b981; }
+        body.dark-mode .electron-3 { fill: #34d399; }
+
+        .loader-text {
+          font-size: 0.85rem;
+          font-weight: 600;
+          letter-spacing: 0.25em;
+          color: #1a1a2e;
+          text-transform: uppercase;
+          animation: pulse-text 2s ease-in-out infinite;
+        }
+
+        body.dark-mode .loader-text {
+          color: #e8e8f8;
+        }
+
+        @keyframes pulse-core {
+          0%, 100% { transform: scale(1); opacity: 1; transform-origin: 50px 50px; }
+          50% { transform: scale(1.3); opacity: 0.8; transform-origin: 50px 50px; }
+        }
+
+        @keyframes pulse-text {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      </style>
+      <div class="initial-loader-wrapper">
+        <svg class="quantum-cell-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          <!-- Orbits -->
+          <ellipse cx="50" cy="50" rx="40" ry="12" fill="none" class="orbit-path" transform="rotate(0 50 50)" />
+          <ellipse cx="50" cy="50" rx="40" ry="12" fill="none" class="orbit-path" transform="rotate(60 50 50)" />
+          <ellipse cx="50" cy="50" rx="40" ry="12" fill="none" class="orbit-path" transform="rotate(120 50 50)" />
+
+          <!-- Nucleus -->
+          <circle cx="50" cy="50" r="6" class="nucleus-core" filter="url(#glow)" />
+
+          <!-- Orbital Path for Motion -->
+          <path id="orbit1" d="M 90,50 A 40,12 0 1,1 10,50 A 40,12 0 1,1 90,50" fill="none" />
+
+          <!-- Electron 1 -->
+          <g transform="rotate(0 50 50)">
+            <circle r="3.5" class="electron-1" filter="url(#glow)">
+              <animateMotion dur="2s" repeatCount="indefinite">
+                <mpath href="#orbit1" />
+              </animateMotion>
+            </circle>
+          </g>
+
+          <!-- Electron 2 -->
+          <g transform="rotate(60 50 50)">
+            <circle r="3.5" class="electron-2" filter="url(#glow)">
+              <animateMotion dur="2.5s" repeatCount="indefinite">
+                <mpath href="#orbit1" />
+              </animateMotion>
+            </circle>
+          </g>
+
+          <!-- Electron 3 -->
+          <g transform="rotate(120 50 50)">
+            <circle r="3.5" class="electron-3" filter="url(#glow)">
+              <animateMotion dur="3s" repeatCount="indefinite">
+                <mpath href="#orbit1" />
+              </animateMotion>
+            </circle>
+          </g>
+        </svg>
+        <div class="loader-text">INITIALIZING...</div>
+      </div>
+    </div>
+  </body>
+</html>
