@@ -103,10 +103,10 @@ function App() {
     });
   };
 
-  // Footer social links (from Angular) — using reliable icon sources
+  // Footer social links — using local asset sources for reliability
   const footerLinks = [
-    { name: 'LeetCode', url: 'https://leetcode.com/Sumagna007/', icon: 'https://cdn.iconscout.com/icon/free/png-256/free-leetcode-3521542-2944960.png' },
-    { name: 'HackerRank', url: 'https://www.hackerrank.com/sumagna_dey/', icon: 'https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/160_Hackerrank_logo_logos-512.png' },
+    { name: 'LeetCode', url: 'https://leetcode.com/Sumagna007/', icon: '/assets/leetcode.png' },
+    { name: 'HackerRank', url: 'https://www.hackerrank.com/sumagna_dey/', icon: '/assets/hackerrank.png' },
     { name: 'Google Scholar', url: 'https://scholar.google.com/citations?user=iFBk_AIAAAAJ&hl=en', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg' },
     { name: 'ResearchGate', url: 'https://www.researchgate.net/profile/Sumagna-Dey', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/ResearchGate_icon_SVG.svg/1280px-ResearchGate_icon_SVG.svg.png' },
     { name: 'ORCID', url: 'https://orcid.org/0000-0001-5739-722X', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg' }

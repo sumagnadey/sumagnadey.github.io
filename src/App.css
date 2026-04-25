@@ -94,6 +94,15 @@ main {
   height: 22px;
   object-fit: contain;
   border-radius: 0;
+  transition: filter 0.3s ease;
+}
+
+body.dark-mode .footer-social-link img {
+  /* No filter, keep original colors */
+}
+
+body:not(.dark-mode) .footer-social-link img {
+  /* No filter, keep original colors */
 }
 
 .footer-social-link:hover {
@@ -136,7 +145,7 @@ main {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-primary);

@@ -23,7 +23,7 @@ const educationData = [
         location: "Bankura, India",
         date: "2015 - 2017",
         frontImage: "/assets/Kenduadihi.jpg",
-        backLogo: "https://upload.wikimedia.org/wikipedia/en/b/b7/West_Bengal_Council_of_Higher_Secondary_Education_Logo.png",
+        backLogo: "/assets/wbchse_logo.png",
         accent: '#a78bfa',
     },
     {
@@ -33,8 +33,8 @@ const educationData = [
         score: "Percentage: 91.14%",
         location: "Bankura, India",
         date: "2012 - 2015",
-        frontImage: "https://content.jdmagicbox.com/comp/kenduadihi/w2/9999p3242.3242.181113152752.v2w2/catalogue/kenduadihi-high-school-kenduadihi-schools-30ja00m02y.jpg?clr=423824",
-        backLogo: "https://upload.wikimedia.org/wikipedia/en/d/d9/West_Bengal_Board_of_Secondary_Education_Logo.png",
+        frontImage: "/assets/Kenduadihi.jpg",
+        backLogo: "/assets/wbbse_logo.png",
         accent: '#c084fc',
     }
 ];

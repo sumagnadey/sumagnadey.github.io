@@ -7,58 +7,58 @@ const skillCategories = [
     title: 'Quantum & AI',
     icon: <Atom size={20} />,
     skills: [
-      { name: 'Qiskit', icon: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Qiskit-Logo.svg' },
-      { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
-      { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
-      { name: 'Keras', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg' },
-      { name: 'OpenCV', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg' },
+      { name: 'Qiskit', icon: '/assets/icons/qiskit.svg' },
+      { name: 'TensorFlow', icon: '/assets/icons/tensorflow.svg' },
+      { name: 'PyTorch', icon: '/assets/icons/pytorch.svg' },
+      { name: 'Keras', icon: '/assets/icons/keras.svg' },
+      { name: 'OpenCV', icon: '/assets/icons/opencv.svg' },
       { name: 'PennyLane', fallbackEmoji: '⚛️' },
-      { name: 'Cirq', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Google_Quantum_AI.png' },
+      { name: 'Cirq', icon: '/assets/icons/cirq.png' },
     ]
   },
   {
     title: 'Languages',
     icon: <Code2 size={20} />,
     skills: [
-      { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
-      { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-      { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-      { name: 'C', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
-      { name: 'SQL', icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png' },
+      { name: 'Python', icon: '/assets/icons/python.svg' },
+      { name: 'Java', icon: '/assets/icons/java.svg' },
+      { name: 'JavaScript', icon: '/assets/icons/javascript.svg' },
+      { name: 'C', icon: '/assets/icons/c.svg' },
+      { name: 'SQL', icon: '/assets/icons/sql.png' },
     ]
   },
   {
     title: 'Cloud & DevOps',
     icon: <Cloud size={20} />,
     skills: [
-      { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
-      { name: 'Azure', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
-      { name: 'GCP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
+      { name: 'AWS', icon: '/assets/icons/aws.svg' },
+      { name: 'Azure', icon: '/assets/icons/azure.svg' },
+      { name: 'GCP', icon: '/assets/icons/gcp.svg' },
       { name: 'BigQuery', fallbackEmoji: '📊' },
       { name: 'Dataflow', fallbackEmoji: '🔄' },
       { name: 'Vertex AI', fallbackEmoji: '🤖' },
-      { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-      { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+      { name: 'Docker', icon: '/assets/icons/docker.svg' },
+      { name: 'Linux', icon: '/assets/icons/linux.svg' },
     ]
   },
   {
     title: 'Data & Databases',
     icon: <Database size={20} />,
     skills: [
-      { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-      { name: 'Oracle', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg' },
-      { name: 'Pandas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg' },
-      { name: 'NumPy', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg' },
+      { name: 'MySQL', icon: '/assets/icons/mysql.svg' },
+      { name: 'Oracle', icon: '/assets/icons/oracle.svg' },
+      { name: 'Pandas', icon: '/assets/icons/pandas.svg' },
+      { name: 'NumPy', icon: '/assets/icons/numpy.svg' },
     ]
   },
   {
     title: 'Tools',
     icon: <Wrench size={20} />,
     skills: [
-      { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-      { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
-      { name: 'Jenkins', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg' },
-      { name: 'Jupyter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg' },
+      { name: 'Git', icon: '/assets/icons/git.svg' },
+      { name: 'Postman', icon: '/assets/icons/postman.svg' },
+      { name: 'Jenkins', icon: '/assets/icons/jenkins.svg' },
+      { name: 'Jupyter', icon: '/assets/icons/jupyter.svg' },
     ]
   },
 ];

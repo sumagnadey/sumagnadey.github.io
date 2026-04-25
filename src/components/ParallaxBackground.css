@@ -1,5 +1,5 @@
 /* ============================================
-   DEEP SPACE PARALLAX BACKGROUND
+   DEEP SPACE PARALLAX BACKGROUND — 120fps Optimized
    ============================================ */
 .parallax-container {
   position: fixed;
@@ -13,20 +13,22 @@
   transition: background 0.6s ease;
 }
 
-/* Light mode — soft sky gradient */
+/* Light mode — warm lavender sky */
 .parallax-container.light {
-  background: radial-gradient(ellipse at 50% 30%, #e8ecf4 0%, #dde3ef 40%, #c8d0e0 100%);
+  background: linear-gradient(160deg, #f8f9ff 0%, #eef0fb 30%, #e8e5f8 60%, #f0ecff 100%);
 }
 
 /* ============================================
-   NEBULA LAYERS
+   NEBULA LAYERS — GPU Optimized
    ============================================ */
 .nebula-layer {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
   pointer-events: none;
   mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  /* Use pre-blurred radial gradients instead of filter:blur */
 }
 
 .nebula-1 {
@@ -34,7 +36,7 @@
   height: 600px;
   top: -10%;
   left: -5%;
-  background: radial-gradient(circle, rgba(88, 28, 135, 0.35) 0%, rgba(59, 7, 100, 0.1) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(88, 28, 135, 0.35) 0%, rgba(59, 7, 100, 0.1) 40%, transparent 65%);
   animation: nebulaDrift 30s ease-in-out infinite alternate;
 }
 
@@ -43,7 +45,7 @@
   height: 500px;
   bottom: -15%;
   right: -10%;
-  background: radial-gradient(circle, rgba(30, 64, 175, 0.3) 0%, rgba(29, 78, 216, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(30, 64, 175, 0.3) 0%, rgba(29, 78, 216, 0.08) 40%, transparent 65%);
   animation: nebulaDrift 35s ease-in-out infinite alternate-reverse;
 }
 
@@ -52,25 +54,32 @@
   height: 350px;
   top: 40%;
   left: 50%;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 55%);
   animation: nebulaDrift 40s ease-in-out infinite alternate;
 }
 
 @keyframes nebulaDrift {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50% { transform: translate(30px, -20px) scale(1.1); opacity: 0.8; }
-  100% { transform: translate(-20px, 15px) scale(0.95); opacity: 0.5; }
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate3d(30px, -20px, 0) scale(1.1); opacity: 0.8; }
+  100% { transform: translate3d(-20px, 15px, 0) scale(0.95); opacity: 0.5; }
 }
 
-/* Light mode — very subtle */
+/* Light mode — pastel tinted nebula */
 .parallax-container.light .nebula-layer {
-  opacity: 0.08;
+  opacity: 0.12;
   mix-blend-mode: multiply;
 }
 
 /* ============================================
    STAR FIELDS — Three depth layers
    ============================================ */
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 .stars-layer-1 {
   position: absolute;
   width: 1px;
@@ -152,8 +161,8 @@
 }
 
 @keyframes starTwinkle {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-2000px); }
+  from { transform: translateY(0px) translateZ(0); }
+  to { transform: translateY(-2000px) translateZ(0); }
 }
 
 /* ============================================
@@ -166,6 +175,7 @@
   background: linear-gradient(90deg, rgba(255,255,255,0.8), transparent);
   border-radius: 50%;
   opacity: 0;
+  will-change: transform, opacity;
   animation: shoot 8s ease-in-out infinite;
 }
 
@@ -203,6 +213,8 @@
 .cosmic-dust {
   position: absolute;
   inset: 0;
+  will-change: transform;
+  transform: translateZ(0);
   background-image:
     radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.15) 0%, transparent 100%),
     radial-gradient(1px 1px at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 100%),
@@ -214,8 +226,8 @@
 }
 
 @keyframes dustDrift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(-5px, 3px); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-5px, 3px, 0); }
 }
 
 .parallax-container .hidden {
@@ -223,31 +235,32 @@
 }
 
 /* ============================================
-   LIGHT MODE AESTHETICS (Elegant Monochromatic)
+   LIGHT MODE — Pastel Tinted Fluid Blobs
    ============================================ */
 .light-blob {
   position: absolute;
-  filter: blur(80px);
   z-index: 1;
-  opacity: 0.8;
+  opacity: 0.6;
+  will-change: transform;
+  transform: translateZ(0);
   animation: morphBlob 20s infinite ease-in-out alternate;
   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  transition: all 1s ease;
+  transition: opacity 1s ease;
 }
 
 .light-blob-1 {
   width: 50vw;
   height: 50vw;
-  background: linear-gradient(135deg, rgba(226, 232, 240, 0.8), rgba(248, 250, 252, 0.9));
+  background: radial-gradient(ellipse at center, rgba(165, 148, 249, 0.25) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%);
   top: -10%;
   left: -10%;
   animation-delay: 0s;
 }
 
 .light-blob-2 {
-  width: 60vw;
-  height: 60vw;
-  background: linear-gradient(135deg, rgba(203, 213, 225, 0.5), rgba(241, 245, 249, 0.9));
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(ellipse at center, rgba(244, 163, 197, 0.2) 0%, rgba(236, 72, 153, 0.06) 50%, transparent 70%);
   bottom: -20%;
   right: -10%;
   animation-delay: -5s;
@@ -257,7 +270,7 @@
 .light-blob-3 {
   width: 40vw;
   height: 40vw;
-  background: linear-gradient(135deg, rgba(241, 245, 249, 0.8), rgba(255, 255, 255, 0.9));
+  background: radial-gradient(ellipse at center, rgba(103, 232, 249, 0.18) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
   top: 30%;
   left: 40%;
   animation-delay: -10s;
@@ -265,10 +278,10 @@
 }
 
 @keyframes morphBlob {
-  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(0deg) scale(1); }
-  33% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: rotate(120deg) scale(1.1); }
-  66% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; transform: rotate(240deg) scale(0.9); }
-  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(360deg) scale(1); }
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(0deg) scale(1) translateZ(0); }
+  33% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; transform: rotate(120deg) scale(1.1) translateZ(0); }
+  66% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; transform: rotate(240deg) scale(0.9) translateZ(0); }
+  100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(360deg) scale(1) translateZ(0); }
 }
 
 /* ============================================
@@ -278,6 +291,8 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .weather-effect.rain {
@@ -309,12 +324,11 @@
   background: 
     radial-gradient(ellipse at 50% -20%, rgba(255,255,255,0.1) 0%, transparent 50%),
     radial-gradient(ellipse at 20% 120%, rgba(255,255,255,0.05) 0%, transparent 40%);
-  filter: blur(40px);
   animation: cloudsDrift 40s alternate infinite ease-in-out;
 }
 @keyframes cloudsDrift {
-  0% { transform: translateX(-5%); }
-  100% { transform: translateX(5%); }
+  0% { transform: translate3d(-5%, 0, 0); }
+  100% { transform: translate3d(5%, 0, 0); }
 }
 
 .weather-effect.lightning {
@@ -329,15 +343,22 @@
 
 
 /* ============================================
-   PERFORMANCE — Mobile
+   PERFORMANCE — Mobile Optimization
    ============================================ */
 @media (max-width: 768px) {
+  .nebula-layer, .light-blob {
+    mix-blend-mode: normal !important;
+  }
   .nebula-1 { width: 300px; height: 300px; }
   .nebula-2 { width: 250px; height: 250px; }
   .nebula-3 { display: none; }
   .shooting-star { display: none; }
   .cosmic-dust { opacity: 0.2; }
   .stars-layer-3 { display: none; }
+  .light-blob { opacity: 0.4; }
+  .light-blob-1 { width: 80vw; height: 80vw; }
+  .light-blob-2 { width: 70vw; height: 70vw; }
+  .light-blob-3 { width: 50vw; height: 50vw; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -346,7 +367,9 @@
   .stars-layer-2,
   .stars-layer-3,
   .shooting-star,
-  .cosmic-dust {
+  .cosmic-dust,
+  .light-blob,
+  .weather-effect {
     animation: none !important;
   }
 }

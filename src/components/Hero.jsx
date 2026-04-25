@@ -65,7 +65,7 @@ const Hero = ({ darkTheme, weatherCondition }) => {
   return (
     <section id="hero" className="section hero-section">
       <div className="hero-particles">
-        {Array.from({ length: 20 }).map((_, i) => (
+        {Array.from({ length: 10 }).map((_, i) => (
           <div key={i} className="particle-dot" style={{
             left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 6}s`, animationDuration: `${4 + Math.random() * 6}s`,
@@ -83,7 +83,7 @@ const Hero = ({ darkTheme, weatherCondition }) => {
           <div className="profile-img-container">
             <div className="profile-ring" />
             <div className="profile-ring-inner" />
-            <img src="/assets/profile_pic.jpg" alt="Sumagna Dey" className="profile-img" />
+            <img src="/assets/profile_pic_dark.jpg" alt="Sumagna Dey" className="profile-img" />
           </div>
 
           <h2 className="profile-name">Sumagna Dey</h2>
@@ -129,7 +129,7 @@ const Hero = ({ darkTheme, weatherCondition }) => {
             <div className="hero-stat"><span className="stat-number">4+</span><span className="stat-label">Years Exp</span></div>
           </div>
           <div className="hero-actions">
-            <a href="https://drive.google.com/file/d/1wJ2gQfLC_L56hPMt1Izb2OTj-1Ey-ofc/view?usp=sharing" target="_blank" rel="noreferrer" className="btn btn-primary"><Zap size={18} />View Resume</a>
+            <a href="SumagnaResume.pdf" target="_blank" rel="noreferrer" className="btn btn-primary"><Zap size={18} />View Resume</a>
             <a href="#contact" className="btn btn-outline">Contact Me</a>
           </div>
         </motion.div>

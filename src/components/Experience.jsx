@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import './Experience.css';
@@ -44,6 +44,28 @@ const experiences = [
 ];
 
 const Experience = () => {
+    const timelineRef = useRef(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!timelineRef.current) return;
+            const rect = timelineRef.current.getBoundingClientRect();
+            const windowH = window.innerHeight;
+            const timelineH = rect.height;
+            // Calculate how far through the timeline section we've scrolled
+            const start = rect.top - windowH * 0.8;
+            const end = rect.bottom - windowH * 0.3;
+            const range = end - start;
+            if (range <= 0) return;
+            const progress = Math.min(Math.max((0 - start) / range, 0), 1);
+            setScrollProgress(progress);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Initial call
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <section id="experience" className="section experience-section">
             <div className="container" style={{ maxWidth: '900px' }}>
@@ -52,7 +74,13 @@ const Experience = () => {
                     <p className="section-subtitle">My professional journey so far</p>
                 </div>
 
-                <div className="timeline">
+                <div className="timeline" ref={timelineRef}>
+                    {/* Scroll-driven active beam */}
+                    <div
+                        className="timeline-beam"
+                        style={{ height: `${scrollProgress * 100}%` }}
+                    />
+
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}

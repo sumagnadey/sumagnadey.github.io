@@ -48,7 +48,7 @@
   position: absolute;
   top: 12px;
   right: 14px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Fira Code', monospace;
   font-size: 0.7rem;
   font-weight: 700;
   color: var(--primary-color);
@@ -97,12 +97,18 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+body:not(.dark-mode) .research-card-title {
+  color: var(--pen-blue);
+}
 .research-card-journal {
   font-size: 0.78rem;
   color: var(--text-secondary);
   line-height: 1.45;
   margin: 0;
   font-style: italic;
+}
+body:not(.dark-mode) .research-card-journal {
+  color: #2563eb;
 }
 
 /* CTA link */
@@ -118,6 +124,10 @@
   border-radius: 9999px;
   width: fit-content;
   transition: all 0.3s ease;
+}
+body:not(.dark-mode) .research-card-link {
+  color: var(--pen-blue);
+  border-color: rgba(59, 130, 246, 0.2);
 }
 .research-card:hover .research-card-link {
   background: var(--primary-color);

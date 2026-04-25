@@ -23,7 +23,7 @@ const projects = [
     {
         title: "Generate Faces",
         description: "Generate new images of faces using Generative Adversarial Networks (GAN)",
-        image: "https://www.researchgate.net/publication/340884113/figure/fig3/AS:883691647684610@1587699915907/Structure-and-operation-of-InfoGAN-Information-maximizing-Generative-Adversarial.png",
+        image: "/assets/face_gan.png",
         tags: ["Python", "Pytorch", "Deep CNN"],
         githubUrl: "https://github.com/sumagnadey/Udacity_Deep_Learning_NanoDegree/tree/master/4.%20project-face-generation",
         liveUrl: null
