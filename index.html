@@ -21,19 +21,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
 
     <title>Sumagna Dey | Portfolio</title>
-    <script type="module" crossorigin src="/assets/index-D8CkE3Fm.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Cl9f2XlP.css">
+    <script type="module" crossorigin src="/assets/index-D_tpjLWw.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BRpUdIlp.css">
   </head>
   <body>
     <!-- Theme Check to Prevent Flash -->
     <script>
       (function() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'dark') {
           document.body.classList.add('dark-mode');
+        } else if (savedTheme === 'light') {
+          document.body.classList.remove('dark-mode');
         } else {
-          var hours = new Date().getHours();
-          if (hours < 5 || hours >= 18) {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.body.classList.add('dark-mode');
+          } else {
+            var hours = new Date().getHours();
+            if (hours < 5 || hours >= 18) {
+              document.body.classList.add('dark-mode');
+            }
           }
         }
       })();
