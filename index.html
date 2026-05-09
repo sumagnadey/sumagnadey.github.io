@@ -3,16 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sumagna Dey — Quantum AI Engineer at HSBC Quantum Lab. Portfolio showcasing quantum computing research, AI/ML projects, 12+ IEEE/Springer publications, and GCP certifications." />
+
+    <!-- SEO Core -->
+    <title>Sumagna Dey — Quantum AI Engineer | ML Researcher | Portfolio</title>
+    <meta name="description" content="Sumagna Dey — Quantum AI Engineer at HSBC Quantum Lab. Portfolio showcasing quantum computing research, AI/ML projects, 14+ IEEE/Springer/Elsevier publications, and GCP certifications." />
+    <meta name="keywords" content="Sumagna Dey, Quantum AI Engineer, ML Researcher, HSBC Quantum Lab, Quantum Computing, Deep Learning, Machine Learning, Published Researcher, GCP Certified, Portfolio" />
     <meta name="author" content="Sumagna Dey" />
-    <meta property="og:title" content="Sumagna Dey | Portfolio" />
-    <meta property="og:description" content="Quantum AI Engineer | HSBC Quantum Lab | Published Researcher | GCP Certified" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://sumagnadey.github.io/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#030217" />
+    <meta property="og:url" content="https://sumagnadey.github.io/" />
+    <meta property="og:title" content="Sumagna Dey — Quantum AI Engineer | Portfolio" />
+    <meta property="og:description" content="Quantum AI Engineer at HSBC Quantum Lab. 14+ publications in IEEE, Springer & Elsevier. GCP Professional certified." />
+    <meta property="og:image" content="https://sumagnadey.github.io/assets/og-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Sumagna Dey Portfolio" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sumagna Dey — Quantum AI Engineer | Portfolio" />
+    <meta name="twitter:description" content="Quantum AI Engineer at HSBC Quantum Lab. 14+ publications in IEEE, Springer & Elsevier." />
+    <meta name="twitter:image" content="https://sumagnadey.github.io/assets/og-preview.png" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#06060f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f9ff" media="(prefers-color-scheme: light)" />
+
+    <!-- Favicons -->
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/assets/favicon.ico" />
 
-    <!-- Google Fonts Preconnect -->
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -20,32 +45,68 @@
     <!-- Devicons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
 
-    <title>Sumagna Dey | Portfolio</title>
-    <script type="module" crossorigin src="/assets/index-BQJGwtYv.js"></script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sumagna Dey",
+      "url": "https://sumagnadey.github.io/",
+      "jobTitle": "Quantum AI Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "HSBC Quantum Lab"
+      },
+      "description": "Quantum AI Engineer & ML Researcher with 14+ published research papers in IEEE, Springer, Elsevier, and SPIE.",
+      "knowsAbout": ["Quantum Computing", "Artificial Intelligence", "Machine Learning", "Deep Learning", "Quantum Algorithms"],
+      "sameAs": [
+        "https://github.com/sumagnadey",
+        "https://www.linkedin.com/in/sumagnadey/",
+        "https://orcid.org/0000-0001-5739-722X",
+        "https://scholar.google.com/citations?user=iFBk_AIAAAAJ&hl=en",
+        "https://www.researchgate.net/profile/Sumagna-Dey",
+        "https://leetcode.com/Sumagna007/"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "University of Engineering & Management"
+      }
+    }
+    </script>
+
+    <script type="module" crossorigin src="/assets/index-DlWl8dkS.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-DlmpQ5cY.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_framer-CqGuCbEw.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-DS0h0Dsv.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_three-BDP--oRm.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-B66kyPY8.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-r3nH1V1G.css">
   </head>
   <body>
-    <!-- Theme Check to Prevent Flash -->
+    <!-- Theme Flash Prevention — synced with React's period-aware logic -->
     <script>
       (function() {
-        var savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme === 'dark') {
-          document.body.classList.add('dark-mode');
-        } else if (savedTheme === 'light') {
-          document.body.classList.remove('dark-mode');
-        } else {
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark-mode');
-          } else {
-            var hours = new Date().getHours();
-            if (hours < 5 || hours >= 18) {
-              document.body.classList.add('dark-mode');
+        var hours = new Date().getHours();
+        var currentPeriod = (hours < 6 || hours >= 18) ? 'night' : 'day';
+        var isDark = currentPeriod === 'night';
+
+        // Check for user's manual override (only valid if same time period)
+        try {
+          var saved = localStorage.getItem('portfolio-theme-pref');
+          if (saved) {
+            var pref = JSON.parse(saved);
+            if (pref.period === currentPeriod) {
+              isDark = pref.theme === 'dark';
+            } else {
+              localStorage.removeItem('portfolio-theme-pref');
             }
           }
+        } catch(e) { localStorage.removeItem('portfolio-theme-pref'); }
+
+        // Also clean up legacy key from old versions
+        localStorage.removeItem('portfolio-theme');
+
+        if (isDark) {
+          document.body.classList.add('dark-mode');
         }
       })();
     </script>
