@@ -42,8 +42,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Devicons CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" />
+    <!-- Devicons CDN — loaded non-blocking to prevent render delay -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css" /></noscript>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -74,19 +75,21 @@
     }
     </script>
 
-    <script type="module" crossorigin src="/assets/index-VmKyL_ay.js"></script>
+    <!-- module script moved to end of body for faster first paint -->
+    <script type="module" crossorigin src="/assets/index-DatdFkCo.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-DlmpQ5cY.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_framer-CqGuCbEw.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-DBNYVi6p.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_three-BDP--oRm.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CoBEhau6.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-WXE3r5fa.css">
   </head>
   <body>
     <!-- Theme Flash Prevention — synced with React's period-aware logic -->
     <script>
       (function() {
         var hours = new Date().getHours();
-        var currentPeriod = (hours < 6 || hours >= 18) ? 'night' : 'day';
+        // Sync threshold with React: 6–19 = day, 19–6 = night
+        var currentPeriod = (hours < 6 || hours >= 19) ? 'night' : 'day';
         var isDark = currentPeriod === 'night';
 
         // Check for user's manual override (only valid if same time period)
