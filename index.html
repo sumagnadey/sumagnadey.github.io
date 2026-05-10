@@ -74,12 +74,12 @@
     }
     </script>
 
-    <script type="module" crossorigin src="/assets/index-BWvchCQZ.js"></script>
+    <script type="module" crossorigin src="/assets/index-VmKyL_ay.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-DlmpQ5cY.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_framer-CqGuCbEw.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-DS0h0Dsv.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-DBNYVi6p.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_three-BDP--oRm.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DAAvVq2I.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CoBEhau6.css">
   </head>
   <body>
     <!-- Theme Flash Prevention — synced with React's period-aware logic -->
@@ -110,8 +110,7 @@
         }
       })();
     </script>
-    <div id="root">
-      <style>
+    <style>
         .initial-loader-wrapper {
           position: fixed;
           inset: 0;
@@ -180,7 +179,7 @@
           50% { opacity: 0.5; }
         }
       </style>
-      <div class="initial-loader-wrapper">
+      <div id="global-loader" class="initial-loader-wrapper">
         <svg class="quantum-cell-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -229,6 +228,6 @@
         </svg>
         <div class="loader-text">INITIALIZING...</div>
       </div>
-    </div>
+    <div id="root"></div>
   </body>
 </html>
