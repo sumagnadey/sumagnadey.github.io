@@ -76,17 +76,20 @@
     </script>
 
     <!-- module script moved to end of body for faster first paint -->
-    <script type="module" crossorigin src="/assets/index-DljlF0Md.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-DlmpQ5cY.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor_framer-CqGuCbEw.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-PZ2PJElO.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor_three-BDP--oRm.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DIpKgJTq.css">
+    <script type="module" crossorigin src="/assets/index-DexTx_yL.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vwgYCRBJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor_react-D7Vcghd8.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor_framer-BvVr3Sgo.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-B4XAGalb.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-aY-xUl_D.css">
   </head>
   <body>
     <!-- Theme Flash Prevention — synced with React's period-aware logic -->
     <script>
       (function() {
+        // Suppress all CSS transitions until React + weather API settle the theme
+        document.body.classList.add('theme-resolving');
+
         var hours = new Date().getHours();
         // Sync threshold with React: 6–19 = day, 19–6 = night
         var currentPeriod = (hours < 6 || hours >= 19) ? 'night' : 'day';
