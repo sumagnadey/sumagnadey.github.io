@@ -76,12 +76,12 @@
     </script>
 
     <!-- module script moved to end of body for faster first paint -->
-    <script type="module" crossorigin src="/assets/index-BrIjpTFI.js"></script>
+    <script type="module" crossorigin src="/assets/index-BX-PY7Kw.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-DT3Spgxj.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_react-CpTsssMF.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_framer-Li6GwQkP.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-P23YBOpH.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-D4w4sdhI.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-vfPOahA7.css">
   </head>
   <body>
     <!-- Theme Initialization -->
@@ -130,114 +130,58 @@
           background-color: #030014;
         }
 
-        /* Quantum boot sequence */
-        .loader-quantum-ring {
-          width: 120px;
-          height: 120px;
-          position: relative;
-          margin-bottom: 32px;
+        .terminal-loader {
+          width: 90%;
+          max-width: 500px;
+          text-align: left;
+          font-size: 0.85rem;
+          color: #7C3AED; /* Purple for light mode */
+          text-shadow: none;
         }
 
-        .loader-ring {
-          position: absolute;
-          inset: 0;
-          border-radius: 50%;
-          border: 2px solid transparent;
-          animation: loader-spin 2s linear infinite;
+        body.dark-mode .terminal-loader {
+          color: #06B6D4; /* Cyan for dark mode */
+          text-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
         }
 
-        .loader-ring:nth-child(1) {
-          border-top-color: #7C3AED;
-          animation-duration: 1.8s;
-        }
-        .loader-ring:nth-child(2) {
-          inset: 8px;
-          border-right-color: #06B6D4;
-          animation-duration: 2.2s;
-          animation-direction: reverse;
-        }
-        .loader-ring:nth-child(3) {
-          inset: 16px;
-          border-bottom-color: #A78BFA;
-          animation-duration: 1.5s;
-        }
-
-        .loader-core {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 16px;
-          height: 16px;
-          margin: -8px 0 0 -8px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #7C3AED, #06B6D4);
-          animation: loader-pulse 1.5s ease-in-out infinite;
-          box-shadow: 0 0 20px rgba(124, 58, 237, 0.5), 0 0 40px rgba(6, 182, 212, 0.3);
-        }
-
-        body.dark-mode .loader-core {
-          box-shadow: 0 0 30px rgba(124, 58, 237, 0.6), 0 0 60px rgba(6, 182, 212, 0.4);
-        }
-
-        .loader-text {
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.35em;
-          color: #1a1a2e;
-          text-transform: uppercase;
+        .terminal-line {
           opacity: 0;
-          animation: loader-text-in 0.5s ease forwards 0.3s;
+          margin-bottom: 0.5rem;
+          animation: type-line 0.1s forwards;
         }
 
-        body.dark-mode .loader-text {
-          color: #a78bfa;
-        }
+        .terminal-line:nth-child(1) { animation-delay: 0.2s; }
+        .terminal-line:nth-child(2) { animation-delay: 0.7s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.3s; }
+        .terminal-line:nth-child(4) { animation-delay: 1.8s; }
+        .terminal-line:nth-child(5) { animation-delay: 2.3s; color: #10B981; }
 
-        .loader-progress {
-          width: 160px;
-          height: 2px;
-          background: rgba(124, 58, 237, 0.15);
-          border-radius: 2px;
-          margin-top: 16px;
-          overflow: hidden;
-        }
-
-        .loader-progress-bar {
-          height: 100%;
-          background: linear-gradient(90deg, #7C3AED, #06B6D4);
-          border-radius: 2px;
-          animation: loader-progress 2s ease-in-out infinite;
-        }
-
-        @keyframes loader-spin {
-          to { transform: rotate(360deg); }
-        }
-
-        @keyframes loader-pulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.4); opacity: 0.7; }
-        }
-
-        @keyframes loader-text-in {
+        @keyframes type-line {
           to { opacity: 1; }
         }
 
-        @keyframes loader-progress {
-          0% { width: 0%; margin-left: 0; }
-          50% { width: 80%; margin-left: 10%; }
-          100% { width: 0%; margin-left: 100%; }
+        .terminal-cursor {
+          display: inline-block;
+          width: 8px;
+          height: 15px;
+          background: currentColor;
+          vertical-align: middle;
+          margin-left: 6px;
+          animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
         }
       </style>
       <div id="global-loader" class="initial-loader-wrapper">
-        <div class="loader-quantum-ring">
-          <div class="loader-ring"></div>
-          <div class="loader-ring"></div>
-          <div class="loader-ring"></div>
-          <div class="loader-core"></div>
-        </div>
-        <div class="loader-text">INITIALIZING</div>
-        <div class="loader-progress">
-          <div class="loader-progress-bar"></div>
+        <div class="terminal-loader">
+          <div class="terminal-line">&gt; BOOT SEQUENCE INITIATED...</div>
+          <div class="terminal-line">&gt; ENGAGING QUANTUM CORES... [OK]</div>
+          <div class="terminal-line">&gt; LOADING AGENTIC AI MODELS... [OK]</div>
+          <div class="terminal-line">&gt; DECRYPTING SECURE CHANNELS... [OK]</div>
+          <div class="terminal-line">&gt; ACCESS GRANTED. <span class="terminal-cursor"></span></div>
         </div>
       </div>
     <div id="root"></div>
