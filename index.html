@@ -86,12 +86,12 @@
     </script>
 
   <!-- module script moved to end of body for faster first paint -->
-  <script type="module" crossorigin src="/assets/index-BTeWypdV.js"></script>
+  <script type="module" crossorigin src="/assets/index-BGvycDWw.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/vendor-cN3NJbog.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor_react-caI6DkLH.js">
-  <link rel="modulepreload" crossorigin href="/assets/vendor_framer-BbbM3oft.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor_framer-oMVz2IN8.js">
   <link rel="modulepreload" crossorigin href="/assets/vendor_lucide-Dky4BNo6.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-D8zXN-No.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-Bh_KMq9w.css">
 </head>
 
 <body>
@@ -141,86 +141,139 @@
       background-color: #030014;
     }
 
-    .terminal-loader {
-      width: 90%;
-      max-width: 500px;
-      text-align: left;
+    .hud-spinner {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hud-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: var(--theme-color, #7C3AED);
+      border-bottom-color: var(--theme-color, #7C3AED);
+      animation: spin linear infinite;
+    }
+
+    .r1 { top: 0; left: 0; right: 0; bottom: 0; animation-duration: 2s; }
+    .r2 { 
+      top: 15px; left: 15px; right: 15px; bottom: 15px; 
+      animation-duration: 3s; 
+      animation-direction: reverse; 
+      border-top-color: transparent; 
+      border-bottom-color: transparent;
+      border-right-color: var(--theme-color, #7C3AED); 
+      border-left-color: var(--theme-color, #7C3AED); 
+    }
+    .r3 { top: 30px; left: 30px; right: 30px; bottom: 30px; animation-duration: 1.5s; border-style: dashed; }
+    
+    .hud-core {
+      position: absolute;
+      top: 45px; left: 45px; right: 45px; bottom: 45px;
+      background: var(--theme-color, #7C3AED);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--theme-color, #7C3AED);
+      animation: pulse 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @keyframes pulse { 
+      0% { transform: scale(0.8); opacity: 0.8; } 
+      100% { transform: scale(1.1); opacity: 1; } 
+    }
+
+    .hud-terminal {
+      width: 280px;
+      color: var(--theme-color, #7C3AED);
       font-size: 0.85rem;
-      color: #7C3AED;
-      /* Purple for light mode */
-      text-shadow: none;
+      text-shadow: 0 0 8px rgba(var(--theme-rgb), 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    #hud-text {
+      min-height: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
     }
 
-    body.dark-mode .terminal-loader {
-      color: #06B6D4;
-      /* Cyan for dark mode */
-      text-shadow: 0 0 5px rgba(6, 182, 212, 0.4);
+    .hud-progress {
+      width: 100%;
+      height: 2px;
+      background: rgba(124, 58, 237, 0.2);
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
     }
 
-    .terminal-line {
-      opacity: 0;
-      margin-bottom: 0.5rem;
-      animation: type-line 0.1s forwards;
+    .hud-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--theme-color, #7C3AED);
+      box-shadow: 0 0 10px var(--theme-color, #7C3AED);
+      transition: width 0.15s ease-out;
     }
 
-    .terminal-line:nth-child(1) {
-      animation-delay: 0.2s;
+    /* Light Mode Variables */
+    body:not(.dark-mode) .hud-spinner, 
+    body:not(.dark-mode) .hud-terminal {
+      --theme-color: #7C3AED;
+      --theme-rgb: 124, 58, 237;
     }
+    body:not(.dark-mode) .hud-progress { background: rgba(124, 58, 237, 0.15); }
 
-    .terminal-line:nth-child(2) {
-      animation-delay: 0.7s;
+    /* Dark Mode Variables */
+    body.dark-mode .hud-spinner, 
+    body.dark-mode .hud-terminal {
+      --theme-color: #06B6D4;
+      --theme-rgb: 6, 182, 212;
     }
-
-    .terminal-line:nth-child(3) {
-      animation-delay: 1.3s;
-    }
-
-    .terminal-line:nth-child(4) {
-      animation-delay: 1.8s;
-    }
-
-    .terminal-line:nth-child(5) {
-      animation-delay: 2.3s;
-      color: #10B981;
-    }
-
-    @keyframes type-line {
-      to {
-        opacity: 1;
-      }
-    }
-
-    .terminal-cursor {
-      display: inline-block;
-      width: 8px;
-      height: 15px;
-      background: currentColor;
-      vertical-align: middle;
-      margin-left: 6px;
-      animation: blink 0.8s infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0;
-      }
-    }
+    body.dark-mode .hud-progress { background: rgba(6, 182, 212, 0.15); }
   </style>
+
   <div id="global-loader" class="initial-loader-wrapper">
-    <div class="terminal-loader">
-      <div class="terminal-line">&gt; BOOT SEQUENCE INITIATED...</div>
-      <div class="terminal-line">&gt; ENGAGING QUANTUM CORES... [OK]</div>
-      <div class="terminal-line">&gt; LOADING AGENTIC AI MODELS... [OK]</div>
-      <div class="terminal-line">&gt; DECRYPTING SECURE CHANNELS... [OK]</div>
-      <div class="terminal-line">&gt; ACCESS GRANTED. <span class="terminal-cursor"></span></div>
+    <div class="hud-spinner">
+      <div class="hud-ring r1"></div>
+      <div class="hud-ring r2"></div>
+      <div class="hud-ring r3"></div>
+      <div class="hud-core"></div>
+    </div>
+    <div class="hud-terminal">
+      <div id="hud-text">&gt; SYSTEM STANDBY...</div>
+      <div class="hud-progress"><div class="hud-progress-bar" id="hud-bar"></div></div>
     </div>
   </div>
+
+  <script>
+    (function() {
+      const terminal = document.getElementById('hud-text');
+      const bar = document.getElementById('hud-bar');
+      const logs = [
+        "INITIALIZING QUANTUM KERNEL...",
+        "ALLOCATING NEURAL RESOURCES...",
+        "ESTABLISHING SECURE PROTOCOLS...",
+        "LOADING AGENTIC MODELS...",
+        "SYNCING TO MAINFRAME...",
+        "ACCESS GRANTED."
+      ];
+      let logIdx = 0;
+      let progress = 0;
+
+      function updateBoot() {
+        if (logIdx < logs.length) {
+          terminal.innerText = "> " + logs[logIdx];
+          progress += (100 / logs.length);
+          bar.style.width = progress + '%';
+          logIdx++;
+          setTimeout(updateBoot, 120 + Math.random() * 150);
+        }
+      }
+      setTimeout(updateBoot, 100);
+    })();
+  </script>
   <div id="root"></div>
 </body>
 
