@@ -137,86 +137,108 @@
       display: flex;
       flex-direction: column;
       pointer-events: none;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Inter', 'Space Grotesk', sans-serif;
+      perspective: 1200px; /* For 3D curtain effect */
     }
 
-    /* Subtle grid background for the curtain */
     .loader-panel-top,
     .loader-panel-bottom {
       height: 50vh;
       width: 100vw;
       background-color: #fafafe;
       position: relative;
-      transition: transform 1.2s cubic-bezier(0.76, 0, 0.24, 1) 0.2s;
-      will-change: transform;
+      /* Advanced cubic bezier for a "snap and float" cinematic feel */
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.17, 1) 0.2s, opacity 1s ease 0.4s, filter 1s ease 0.2s;
+      will-change: transform, opacity, filter;
       overflow: hidden;
-      background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+      display: flex;
+      justify-content: center;
     }
+
+    /* Ambient lighting */
+    .loader-panel-top::before,
+    .loader-panel-bottom::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(124, 58, 237, 0.05) 0%, transparent 60%);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .loader-panel-top::before { bottom: 0; transform: translate(-50%, 50%); }
+    .loader-panel-bottom::before { top: 0; transform: translate(-50%, -50%); }
 
     body.dark-mode .loader-panel-top,
     body.dark-mode .loader-panel-bottom {
       background-color: #030014;
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    body.dark-mode .loader-panel-top::before,
+    body.dark-mode .loader-panel-bottom::before {
+      background: radial-gradient(circle at center, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
     }
 
-    /* The Text container inside both panels */
+    /* Set 3D origins */
+    .loader-panel-top {
+      transform-origin: top;
+      align-items: flex-end; /* Text aligns to bottom */
+    }
+    
+    .loader-panel-bottom {
+      transform-origin: bottom;
+      align-items: flex-start; /* Text aligns to top */
+    }
+
+    /* The text container */
     .loader-text-wrapper {
       position: absolute;
       left: 0;
       width: 100%;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    /* Position the top text so its bottom half is cut off */
+    /* Top text needs to be shifted down by 50% so the middle aligns with the cut */
     .loader-panel-top .loader-text-wrapper {
       bottom: 0;
       transform: translateY(50%);
     }
 
-    /* Position the bottom text so its top half is cut off */
+    /* Bottom text needs to be shifted up by 50% */
     .loader-panel-bottom .loader-text-wrapper {
       top: 0;
       transform: translateY(-50%);
     }
 
     .loader-text {
-      font-size: clamp(3rem, 8vw, 8rem);
-      font-weight: 700;
-      letter-spacing: 0.2em;
+      font-size: clamp(2rem, 5vw, 5rem);
+      font-weight: 300;
+      letter-spacing: 0.4em;
       color: #111;
       margin: 0;
-      line-height: 1;
       text-transform: uppercase;
       opacity: 0;
-      animation: fadeInText 1s ease 0.3s forwards;
+      animation: elegantFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
     }
 
     body.dark-mode .loader-text {
       color: #fff;
     }
 
-    @keyframes fadeInText {
-      from { opacity: 0; filter: blur(10px); }
-      to { opacity: 1; filter: blur(0); }
+    @keyframes elegantFadeIn {
+      0% { opacity: 0; filter: blur(15px); transform: scale(1.05); }
+      100% { opacity: 1; filter: blur(0); transform: scale(1); }
     }
 
-    /* The glowing line */
+    /* The glowing laser line */
     .loader-line-container {
       position: absolute;
       top: 50%;
       left: 0;
       width: 100%;
-      height: 2px;
+      height: 1px;
       transform: translateY(-50%);
-      z-index: 2;
+      z-index: 10;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -226,27 +248,57 @@
       height: 100%;
       width: 0%;
       background: #7C3AED;
-      box-shadow: 0 0 15px #7C3AED, 0 0 30px #7C3AED;
-      transition: width 1.5s cubic-bezier(0.76, 0, 0.24, 1) 0.5s, opacity 0.3s ease;
+      box-shadow: 0 0 15px #7C3AED, 0 0 30px #7C3AED, 0 0 45px #7C3AED;
+      transition: width 1s cubic-bezier(0.85, 0, 0.15, 1) 0.6s, opacity 0.4s ease;
     }
 
     body.dark-mode .loader-line {
       background: #06B6D4;
-      box-shadow: 0 0 15px #06B6D4, 0 0 30px #06B6D4;
+      box-shadow: 0 0 15px #06B6D4, 0 0 30px #06B6D4, 0 0 45px #06B6D4;
     }
 
-    /* The Reveal Animation */
+    /* Central Quantum Spark */
+    .quantum-spark {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #fff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      box-shadow: 0 0 10px #7C3AED, 0 0 20px #7C3AED;
+      animation: sparkPulse 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      z-index: 11;
+    }
+
+    body.dark-mode .quantum-spark {
+      box-shadow: 0 0 10px #06B6D4, 0 0 20px #06B6D4;
+    }
+
+    @keyframes sparkPulse {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      40% { transform: translate(-50%, -50%) scale(2); opacity: 1; }
+      80% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    }
+
+    /* The Reveal Animation - 3D Fold and slide */
     .initial-loader-wrapper.loader-finished .loader-line {
       opacity: 0;
-      width: 100%;
+      width: 100vw;
     }
 
     .initial-loader-wrapper.loader-finished .loader-panel-top {
-      transform: translateY(-100%);
+      transform: translateY(-100%) rotateX(25deg) scale(1.05);
+      opacity: 0;
+      filter: blur(10px);
     }
 
     .initial-loader-wrapper.loader-finished .loader-panel-bottom {
-      transform: translateY(100%);
+      transform: translateY(100%) rotateX(-25deg) scale(1.05);
+      opacity: 0;
+      filter: blur(10px);
     }
   </style>
 
@@ -258,8 +310,9 @@
       </div>
     </div>
     
-    <!-- The Cut Line -->
+    <!-- The Laser Line & Spark -->
     <div class="loader-line-container">
+      <div class="quantum-spark" id="quantum-spark"></div>
       <div class="loader-line" id="loader-line"></div>
     </div>
     
@@ -277,7 +330,7 @@
       setTimeout(() => {
         const line = document.getElementById('loader-line');
         if (line) {
-          line.style.width = '100%';
+          line.style.width = '100vw';
         }
       }, 50);
     })();
